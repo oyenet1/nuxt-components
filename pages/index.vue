@@ -4,19 +4,14 @@
    <h1 class="font-medium uppercase">The list of all my components app built using nuxtjs</h1>
    <div class="w-full">
     <ul class="list space-y-2 list-decimal list-inside">
-     <li class="rounded shadow space-y-1 bg-slate-50 p-2">
-      <span @click="toggleList(1)">Emoji Api</span>
-      <p class="text-sm pl-5 text-gray-500" v-show="show == 1">This app consume emoji apis and list the on a page. The
-       intermediate part of
-       the app is
-       that it
-       can filter
-       emojis base on category visit the link
+     <li v-for="(cont, index) in dat" :key="index" class="rounded shadow space-y-1 bg-slate-50 p-2">
+      <span @click="toggleList(cont.id)">{{ cont.title }}</span>
+      <p class="text-sm pl-5 text-gray-500" v-show="show == cont.id">
+       {{ cont.content }}
        <span class="text-blue-600 italic">
-        <NuxtLink to="/emojiapi">here</NuxtLink>
+        <NuxtLink :to="cont.link">here</NuxtLink>
        </span>
       </p>
-
      </li>
     </ul>
    </div>
@@ -31,5 +26,14 @@ let show = ref(0);
 function toggleList(val) {
  show.value = val;
 }
+
+let dat = ref([
+ {
+  id: 1, title: "Emoji Api", content: "This app consume emoji apis and list the on a page. The intermediate part of the app is that it can filter emojis base on category visit the link", link: "emojiapi"
+ },
+ {
+  id: 2, title: "Color Picker", content: "it's an app to select and pick color and it display the color", link: "colorpicker"
+ },
+]);
 
 </script>
