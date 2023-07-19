@@ -5,11 +5,11 @@
    <div class="w-full">
     <ul class="list space-y-2 list-decimal list-inside">
      <li v-for="(cont, index) in dat" :key="index" class="rounded shadow space-y-1 bg-slate-50 p-2">
-      <span @click="toggleList(cont.id)">{{ cont.title }}</span>
+      <span @click="toggleList(cont.id)" class="w-full">{{ cont.title }}</span>
       <p class="text-sm pl-5 text-gray-500" v-show="show == cont.id">
        {{ cont.content }}
        <span class="text-blue-600 italic">
-        <NuxtLink :to="cont.link">here</NuxtLink>
+        <NuxtLink :to="cont.link" target="_blank">here</NuxtLink>
        </span>
       </p>
      </li>
@@ -24,7 +24,7 @@
 let show = ref(0);
 
 function toggleList(val) {
- show.value = val;
+ show.value = show.value == val ? 0 : val;
 }
 
 let dat = ref([
