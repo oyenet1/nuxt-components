@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  a.router-link-active,
+  a.router-link-exact-active {
+    @apply text-blue-600 font-medium;
+  }
+}

@@ -1,6 +1,7 @@
 <template>
- <div class="bg-slate-200 w-full space-y-4 p-6 h-screen">
-  <div class="flex bg-white p-4 rounded-lg shadow justify-between max-w-5xl mx-auto items-center">
+ <div class="space-y-4">
+  <div
+   class="flex flex-col gap-4 md:flex-row bg-white p-4 rounded-lg shadow justify-between max-w-5xl mx-auto items-center">
    <h1 class="text-center text-xl uppercase font-medium">List of emojis</h1>
    <div class="flex items-center space-x-2 text-sm">
     <input @keyup="searchEmoji" v-model="search" type="text" class="border px-3 py-2 rounded-md"
@@ -25,7 +26,7 @@ let results = computed(() => {
  return emojis.value.filter((res) => { return res.name.includes(search.value) });
 });
 
-const { data: emojis, refresh } = await useFetch(`https://emojihub.yurace.pro/api/all?category="${search}`);
+const { data: emojis, refresh } = await useFetch('https://emojihub.yurace.pro/api/all');
 
 
 

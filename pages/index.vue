@@ -1,7 +1,7 @@
 <template>
  <div class="bg-slate-200 py-4 h-screen w-screen">
   <div class="w-full max-w-lg space-y-4  p-4 shadow inset mx-auto bg-white rounded-lg oveflow-y-auto">
-   <h1 class="font-medium uppercase bg-primary">The list of all my components app built using nuxtjs</h1>
+   <h1 class="font-medium uppercase">The list of all my components app built using nuxtjs</h1>
    <div class="w-full">
     <ul class="list space-y-2 list-decimal list-inside">
      <li v-for="(cont, index) in dat" :key="index" class="rounded shadow space-y-1 bg-slate-50 p-2">
@@ -15,7 +15,6 @@
      </li>
     </ul>
    </div>
-
   </div>
  </div>
 </template>
